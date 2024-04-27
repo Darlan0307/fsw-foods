@@ -33,7 +33,7 @@ model Product {
   price              Decimal    @db.Decimal(10, 2)
   discountPercentage Int        @default(0)
   restaurantId       String
-  restautant         Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurant         Restaurant @relation(fields: [restaurantId], references: [id])
   categoryId         String
   category           Category   @relation(fields: [categoryId], references: [id])
 }
