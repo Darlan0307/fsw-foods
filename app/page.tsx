@@ -9,11 +9,6 @@ import ProductList from "./_components/product-list";
 
 const Home = async () => {
   const products = await db.product.findMany({
-    where: {
-      discountPercentage: {
-        gt: 0,
-      },
-    },
     take: 10,
     include: {
       restaurant: {
@@ -53,6 +48,13 @@ const Home = async () => {
         </div>
         <ProductList products={products} />
       </section>
+
+      <div className="px-5 pt-6">
+        <PromoBanner
+          src="/promo-banner-02.png"
+          alt="A partir de R$17,90 em lanches"
+        />
+      </div>
     </>
   );
 };
