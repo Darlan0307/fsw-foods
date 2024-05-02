@@ -4,6 +4,11 @@ import { db } from "@/app/_lib/prisma";
 
 const RecommendedProductsPage = async () => {
   const products = await db.product.findMany({
+    where: {
+      discountPercentage: {
+        gt: 0,
+      },
+    },
     take: 20,
     include: {
       restaurant: {
