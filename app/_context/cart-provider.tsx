@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 "use client";
 
-import { Prisma, Product } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import { ReactNode, createContext, useMemo, useState } from "react";
 import { calculateProductTotalPrice } from "../_helpers/price";
 
