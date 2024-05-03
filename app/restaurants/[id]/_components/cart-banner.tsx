@@ -7,7 +7,6 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/app/_components/ui/sheet";
 import { CartContext } from "@/app/_context/cart-provider";
 import { formatCurrency } from "@/app/_helpers/price";
@@ -25,8 +24,6 @@ const CartBanner = ({ restaurant }: CartBannerProps) => {
   const restaurantHasProductsOnCart = products.some(
     (product) => product.restaurantId === restaurant.id,
   );
-
-  console.log({ restaurantHasProductsOnCart });
 
   if (!restaurantHasProductsOnCart) return null;
 
@@ -48,10 +45,9 @@ const CartBanner = ({ restaurant }: CartBannerProps) => {
         </div>
         {/* BOTÃO */}
 
-        <Sheet open={isCartOpen}>
-          <SheetTrigger>
-            <Button>Ver sacola</Button>
-          </SheetTrigger>
+        <Button onClick={() => setIsCartOpen(true)}>Ver sacola</Button>
+
+        <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
           <SheetContent className="w-[90vw]">
             <SheetHeader>
               <SheetTitle className="text-left">Sacola</SheetTitle>
