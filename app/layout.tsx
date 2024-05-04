@@ -8,8 +8,8 @@ import { Toaster } from "@/app/_components/ui/sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FSW Foods ",
-  description: "aplicação inspirada no ifood",
+  title: "Food",
+  description: "Here you will find the best food and restaurants",
 };
 
 export default function RootLayout({
@@ -18,12 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
           <CartProvider>{children}</CartProvider>
-          <Toaster />
         </AuthProvider>
+
+        <Toaster />
       </body>
     </html>
   );
