@@ -29,7 +29,7 @@ const Header = () => {
   const handleSignInClick = () => signIn();
 
   return (
-    <div className="flex items-center justify-between px-5 pt-6 md:px-[10vw]">
+    <div className="z-20 flex items-center justify-between bg-white px-5 py-6 sm:sticky sm:left-0 sm:top-0 sm:w-full md:px-[10vw]">
       <div className="relative h-[30px] w-[100px]">
         <Link href="/">
           <Image

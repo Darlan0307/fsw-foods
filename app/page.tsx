@@ -53,21 +53,26 @@ const Home = async () => {
   return (
     <>
       <Header />
-      <div className="px-5 pt-6">
+      <div className="px-5 pt-6 sm:fixed sm:left-[50%] sm:top-6 sm:z-20 sm:w-[350px] sm:-translate-x-[50%] sm:p-0">
         <Search />
       </div>
 
-      <div className="px-5 pt-6">
-        <CategoryList />
-      </div>
+      <div className="flex flex-col  lg:flex-col-reverse">
+        <div className="px-5 pt-6">
+          <h2 className="mb-2 hidden text-center font-semibold lg:block">
+            Categorias
+          </h2>
+          <CategoryList />
+        </div>
 
-      <div className="px-5 pt-6">
-        <Link href={`/categories/${pizzasCategory?.id}/products`}>
-          <PromoBanner
-            src="/promo-banner-01.png"
-            alt="Até 30% de desconto em pizzas!"
-          />
-        </Link>
+        <div className="px-5 pt-6">
+          <Link href={`/categories/${pizzasCategory?.id}/products`}>
+            <PromoBanner
+              src="/promo-banner-01.png"
+              alt="Até 30% de desconto em pizzas!"
+            />
+          </Link>
+        </div>
       </div>
 
       <div className="space-y-4 pt-6">
