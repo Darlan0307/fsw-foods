@@ -12,7 +12,7 @@ const PromoBanner = ({ src, alt }: PromoBannerProps) => {
       alt={alt}
       height={0}
       width={0}
-      className="h-auto w-full object-contain"
+      className="mx-auto h-auto w-full max-w-[1200px] object-contain"
       sizes="100vw"
       quality={100}
     />

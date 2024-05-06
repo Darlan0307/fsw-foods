@@ -23,16 +23,16 @@ interface ProductItemProps {
 const ProductItem = ({ product, className }: ProductItemProps) => {
   return (
     <Link
-      className={cn("w-[150px] min-w-[150px]", className)}
+      className={cn("w-[150px] min-w-[150px] lg:w-[200px]", className)}
       href={`/products/${product.id}`}
     >
       <div className="w-full space-y-2">
-        <div className="relative aspect-square w-full">
+        <div className="relative aspect-square w-full overflow-hidden">
           <Image
             src={product.imageUrl}
             alt={product.name}
             fill
-            className="rounded-lg object-cover shadow-md"
+            className="rounded-lg object-cover shadow-md transition-all hover:scale-125"
           />
 
           {product.discountPercentage > 0 && (

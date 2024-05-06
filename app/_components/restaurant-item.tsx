@@ -42,15 +42,15 @@ const RestaurantItem = ({
   };
 
   return (
-    <div className={cn("min-w-[266px] max-w-[266px]", className)}>
+    <div className={cn("w-full min-w-[250px] max-w-[320px]", className)}>
       <div className="w-full space-y-3">
         {/* IMAGEM */}
-        <div className="relative h-[136px] w-full">
+        <div className="relative h-[136px] w-full overflow-hidden">
           <Link href={`/restaurants/${restaurant.id}`}>
             <Image
               src={restaurant.imageUrl}
               fill
-              className="rounded-lg object-cover"
+              className="rounded-lg object-cover transition-all hover:scale-125"
               alt={restaurant.name}
             />
           </Link>
@@ -77,8 +77,8 @@ const RestaurantItem = ({
           <div className="flex gap-3">
             {/* CUSTO DE ENTREGA */}
             <div className="flex items-center gap-1">
-              <BikeIcon className="text-primary" size={14} />
-              <span className="text-xs text-muted-foreground">
+              <BikeIcon className="text-primary" size={20} />
+              <span className="text-sm text-muted-foreground">
                 {Number(restaurant.deliveryFee) === 0
                   ? "Entrega grátis"
                   : formatCurrency(Number(restaurant.deliveryFee))}
@@ -86,8 +86,8 @@ const RestaurantItem = ({
             </div>
             {/* TEMPO DE ENTREGA */}
             <div className="flex items-center gap-1">
-              <TimerIcon className="text-primary" size={14} />
-              <span className="text-xs text-muted-foreground">
+              <TimerIcon className="text-primary" size={20} />
+              <span className="text-sm text-muted-foreground">
                 {restaurant.deliveryTimeMinutes} min
               </span>
             </div>
