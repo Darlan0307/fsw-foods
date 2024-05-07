@@ -78,7 +78,7 @@ const Header = () => {
 
                   <div>
                     <h3 className="font-semibold">{data?.user?.name}</h3>
-                    <span className="block text-xs text-muted-foreground">
+                    <span className="block text-sm text-muted-foreground">
                       {data?.user?.email}
                     </span>
                   </div>

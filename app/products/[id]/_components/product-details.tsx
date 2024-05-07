@@ -87,10 +87,10 @@ const ProductDetails = ({
 
   return (
     <>
-      <div className="relative z-50 mt-[-1.5rem] rounded-tl-3xl rounded-tr-3xl bg-white py-5">
+      <div className="relative z-50 mt-[-1.5rem] w-full rounded-tl-3xl rounded-tr-3xl bg-white py-5 md:z-0 md:mt-0 md:max-w-[500px] ">
         {/* RESTAURANTE */}
         <div className="flex items-center gap-[0.375rem] px-5">
-          <div className="relative h-6 w-6">
+          <div className="relative h-10 w-10">
             <Image
               src={product.restaurant.imageUrl}
               alt={product.restaurant.name}
@@ -98,7 +98,7 @@ const ProductDetails = ({
               className="rounded-full object-cover"
             />
           </div>
-          <span className="text-xs text-muted-foreground">
+          <span className="text-lg text-muted-foreground">
             {product.restaurant.name}
           </span>
         </div>
@@ -149,18 +149,18 @@ const ProductDetails = ({
         </div>
 
         <div className="mt-6 space-y-3 px-5">
-          <h3 className="font-semibold">Sobre</h3>
+          <h3 className="font-semibold md:text-2xl">Sobre</h3>
           <p className="text-sm text-muted-foreground">{product.description}</p>
         </div>
 
-        <div className="mt-6 space-y-3">
+        <div className="mt-6 space-y-3 md:hidden">
           <h3 className="px-5 font-semibold">Sucos</h3>
           <ProductList products={complementaryProducts} />
         </div>
 
         <div className="mt-6 px-5">
           <Button
-            className="w-full font-semibold"
+            className="mx-auto w-full max-w-[500px] font-semibold"
             onClick={handleAddToCartClick}
           >
             Adicionar à sacola
