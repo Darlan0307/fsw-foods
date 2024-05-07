@@ -53,7 +53,7 @@ const Home = async () => {
   return (
     <>
       <Header />
-      <div className="px-5 pt-6 sm:fixed sm:left-[50%] sm:top-6 sm:z-20 sm:w-[350px] sm:-translate-x-[50%] sm:p-0">
+      <div className="px-5 pt-6 sm:hidden">
         <Search />
       </div>
 
