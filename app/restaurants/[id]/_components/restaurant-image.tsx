@@ -36,12 +36,12 @@ const RestaurantImage = ({
   const handleBackClick = () => router.back();
 
   return (
-    <div className="relative h-[250px] w-full">
+    <div className="relative h-[250px] w-full md:h-[320px] md:max-w-[600px]">
       <Image
         src={restaurant.imageUrl}
         alt={restaurant.name}
         fill
-        className="object-cover"
+        className="object-cover md:rounded-2xl"
       />
 
       <Button
