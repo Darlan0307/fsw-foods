@@ -1,3 +1,4 @@
+import ButtonBack from "@/app/_components/buttonBack";
 import Header from "@/app/_components/header";
 import ProductItem from "@/app/_components/product-item";
 import { db } from "@/app/_lib/prisma";
@@ -24,13 +25,17 @@ const RecommendedProductsPage = async () => {
     <>
       <Header />
       <div className="px-5 py-6">
-        <h2 className="mb-6 text-lg font-semibold">Pedidos Recomendados</h2>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="mb-6 flex flex-col items-start gap-6 px-6">
+          <ButtonBack />
+          <h2 className="text-lg font-semibold">Pedidos Recomendados</h2>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-5 sm:gap-10">
           {products.map((product) => (
             <ProductItem
               key={product.id}
               product={product}
-              className="min-w-full"
+              className="w-full max-w-[250px]"
             />
           ))}
         </div>
