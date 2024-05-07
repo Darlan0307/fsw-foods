@@ -59,8 +59,8 @@ const OrderItem = ({ order }: OrderItemProps) => {
     router.push(`/restaurants/${order.restaurantId}`);
   };
   return (
-    <Card>
-      <CardContent className="p-5">
+    <Card className="mx-auto w-full max-w-[500px]">
+      <CardContent className=" p-5">
         <div
           className={`w-fit rounded-full bg-[#EEEEEE] px-2 py-1 text-muted-foreground ${order.status !== "COMPLETED" && "bg-green-500 text-white"}`}
         >

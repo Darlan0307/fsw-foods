@@ -4,6 +4,7 @@ import { authOptions } from "../_lib/auth";
 import { redirect } from "next/navigation";
 import Header from "../_components/header";
 import OrderItem from "./_components/order-item";
+import ButtonBack from "../_components/buttonBack";
 
 const MyOrdersPage = async () => {
   const session = await getServerSession(authOptions);
@@ -31,12 +32,19 @@ const MyOrdersPage = async () => {
       <Header />
 
       <div className="px-5 py-6">
-        <h2 className="pb-6 text-lg font-semibold">Meus Pedidos</h2>
+        <div className="mb-6 flex flex-col items-start gap-6 px-2">
+          <ButtonBack />
+          <h2 className="text-lg font-semibold">Meus Pedidos</h2>
+        </div>
 
         <div className="space-y-4">
-          {orders.map((order) => (
-            <OrderItem key={order.id} order={order} />
-          ))}
+          {orders.length > 0 ? (
+            orders.map((order) => <OrderItem key={order.id} order={order} />)
+          ) : (
+            <h3 className="text-center text-lg">
+              Você não realizou nenhum pedido
+            </h3>
+          )}
         </div>
       </div>
     </>
