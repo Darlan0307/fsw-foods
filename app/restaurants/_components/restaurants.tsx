@@ -8,7 +8,7 @@ import Header from "@/app/_components/header";
 import RestaurantItem from "@/app/_components/restaurant-item";
 import { useRouter } from "next/navigation";
 import { Button } from "@/app/_components/ui/button";
-import { ChevronLeftIcon } from "lucide-react";
+import ButtonBack from "@/app/_components/buttonBack";
 
 interface RestaurantProps {
   userFavoriteRestaurants: UserFavoriteRestaurant[];
@@ -41,14 +41,7 @@ const Restaurants = ({ userFavoriteRestaurants }: RestaurantProps) => {
       <div className="px-5">
         {restaurants.length > 0 && (
           <div className="mb-6 flex flex-col items-start gap-2 px-6">
-            <Button
-              className="rounded-full bg-white text-foreground hover:text-white"
-              size="lg"
-              onClick={handleBackClick}
-            >
-              <ChevronLeftIcon />
-              Voltar
-            </Button>
+            <ButtonBack />
             <h2 className="text-lg font-semibold">Restaurantes Encontrados</h2>
           </div>
         )}

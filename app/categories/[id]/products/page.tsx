@@ -1,3 +1,4 @@
+import ButtonBack from "@/app/_components/buttonBack";
 import Header from "@/app/_components/header";
 import ProductItem from "@/app/_components/product-item";
 import { db } from "@/app/_lib/prisma";
@@ -35,13 +36,16 @@ const CategoriesPage = async ({ params: { id } }: CategoriesPageProps) => {
     <>
       <Header />
       <div className="px-5 py-6">
-        <h2 className="mb-6 text-lg font-semibold">{category.name}</h2>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="mb-6 flex flex-col items-start gap-6 px-6">
+          <ButtonBack />
+          <h2 className=" text-lg font-semibold">{category.name}</h2>
+        </div>
+        <div className="grid grid-cols-2 gap-6 sm:flex sm:flex-wrap sm:justify-center sm:gap-10">
           {category.products.map((product) => (
             <ProductItem
               key={product.id}
               product={product}
-              className="min-w-full"
+              className=" w-full max-w-[250px] lg:w-[250px]"
             />
           ))}
         </div>
