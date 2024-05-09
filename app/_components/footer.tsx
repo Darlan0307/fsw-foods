@@ -6,26 +6,28 @@ import { Github, Instagram, Linkedin } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { validarEmail } from "../_helpers/validateEmail";
 import { toast } from "sonner";
+import { RegisterEmail } from "../_actions/registerEmail";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   let date = new Date();
 
   const social = [
     {
-      id: crypto.randomUUID,
+      id: 0,
       name: "GitHub",
       icon: <Github size={35} />,
       link: "https://github.com/Darlan0307",
     },
     {
-      id: crypto.randomUUID,
+      id: 1,
       name: "LinkedIn",
       icon: <Linkedin size={35} />,
       link: "https://www.linkedin.com/in/darlan-martins-8a7956259/",
     },
     {
-      id: crypto.randomUUID,
+      id: 2,
       name: "Instagram",
       icon: <Instagram size={35} />,
       link: "https://www.instagram.com/darlan_sw_/",
@@ -34,9 +36,11 @@ const Footer = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if (!email) {
       toast.warning("Escreva algo");
+      setIsLoading(false);
       return;
     }
 
@@ -44,11 +48,18 @@ const Footer = () => {
 
     if (!emailValid) {
       toast.error("Email inválido");
+      setIsLoading(false);
       return;
     }
 
-    toast.success("Email registrado com sucesso!");
+    const response = await RegisterEmail(email);
+
+    if (response) {
+      toast.success("Cadastrado com sucesso!");
+    }
+
     setEmail("");
+    setIsLoading(false);
   };
 
   return (
@@ -71,8 +82,9 @@ const Footer = () => {
             className="max-w-[200px] md:text-lg"
             variant="outline"
             type="submit"
+            disabled={isLoading}
           >
-            Cadastrar
+            {isLoading ? "Carregando..." : "Cadastrar"}
           </Button>
         </form>
       </div>
