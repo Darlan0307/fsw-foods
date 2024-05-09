@@ -1,9 +1,14 @@
+"use client";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Github, Instagram, Linkedin } from "lucide-react";
+import { FormEvent, useState } from "react";
+import { validarEmail } from "../_helpers/validateEmail";
+import { toast } from "sonner";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
   let date = new Date();
 
   const social = [
@@ -27,16 +32,40 @@ const Footer = () => {
     },
   ];
 
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    if (!email) {
+      toast.warning("Escreva algo");
+      return;
+    }
+
+    let emailValid = validarEmail(email);
+
+    if (!emailValid) {
+      toast.error("Email inválido");
+      return;
+    }
+
+    toast.success("Email registrado com sucesso!");
+    setEmail("");
+  };
+
   return (
     <footer className="mt-10 flex min-h-[60vh] flex-col justify-around bg-primary px-10 sm:min-h-[50vh] md:min-h-[40vh]">
       <div className="flex flex-col justify-center gap-3 sm:flex-row sm:items-center sm:gap-6">
         <h2 className="text-lg font-bold text-white md:text-2xl">
           Quer receber novidades pelo email? <br /> Faça o seu cadastro agora!
         </h2>
-        <form className="flex flex-wrap gap-1 md:flex-nowrap">
+        <form
+          className="flex flex-wrap gap-1 md:flex-nowrap"
+          onSubmit={handleSubmit}
+        >
           <Input
             placeholder="Seu email..."
             className="max-w-[300px] md:text-lg"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <Button
             className="max-w-[200px] md:text-lg"
