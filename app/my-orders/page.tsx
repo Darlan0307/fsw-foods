@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Header from "../_components/header";
 import OrderItem from "./_components/order-item";
 import ButtonBack from "../_components/buttonBack";
+import Footer from "../_components/footer";
 
 const MyOrdersPage = async () => {
   const session = await getServerSession(authOptions);
@@ -41,12 +42,15 @@ const MyOrdersPage = async () => {
           {orders.length > 0 ? (
             orders.map((order) => <OrderItem key={order.id} order={order} />)
           ) : (
-            <h3 className="text-center text-lg">
-              Você não realizou nenhum pedido
-            </h3>
+            <div className="min-h-[40vh]">
+              <h3 className="text-center text-lg">
+                Você não realizou nenhum pedido
+              </h3>
+            </div>
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

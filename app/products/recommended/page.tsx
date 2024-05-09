@@ -1,4 +1,5 @@
 import ButtonBack from "@/app/_components/buttonBack";
+import Footer from "@/app/_components/footer";
 import Header from "@/app/_components/header";
 import ProductItem from "@/app/_components/product-item";
 import { db } from "@/app/_lib/prisma";
@@ -40,6 +41,7 @@ const RecommendedProductsPage = async () => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

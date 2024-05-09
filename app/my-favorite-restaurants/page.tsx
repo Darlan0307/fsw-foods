@@ -6,6 +6,7 @@ import Header from "../_components/header";
 import RestaurantItem from "../_components/restaurant-item";
 import ButtonBack from "../_components/buttonBack";
 import Link from "next/link";
+import Footer from "../_components/footer";
 
 const MyFavoriteRestaurants = async () => {
   const session = await getServerSession(authOptions);
@@ -43,7 +44,7 @@ const MyFavoriteRestaurants = async () => {
               />
             ))
           ) : (
-            <div className="flex flex-col items-center gap-5">
+            <div className="flex min-h-[40vh] flex-col items-center gap-5">
               <h3 className="font-medium">
                 Você ainda não marcou nenhum restaurante como favorito.
               </h3>
@@ -57,6 +58,7 @@ const MyFavoriteRestaurants = async () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
