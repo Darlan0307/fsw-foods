@@ -8,6 +8,7 @@ import { db } from "./_lib/prisma";
 import PromoBanner from "./_components/promo-banner";
 import RestaurantList from "./_components/restaurant-list";
 import Link from "next/link";
+import Footer from "./_components/footer";
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -119,6 +120,8 @@ const Home = async () => {
         </div>
         <RestaurantList />
       </div>
+
+      <Footer />
     </>
   );
 };
