@@ -9,6 +9,7 @@ import PromoBanner from "./_components/promo-banner";
 import RestaurantList from "./_components/restaurant-list";
 import Link from "next/link";
 import Footer from "./_components/footer";
+import Image from "next/image";
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -58,7 +59,23 @@ const Home = async () => {
         <Search />
       </div>
 
-      <div className="flex flex-col  lg:flex-col-reverse">
+      <div className="relative mt-6 flex min-h-[50vh] flex-col items-center gap-5 bg-primary px-5 pt-5 text-white sm:pt-10  lg:justify-center lg:pt-0">
+        <h1 className="text-3xl font-bold lg:text-[44px]">Esta com fome?</h1>
+        <p className="text-center text-lg font-semibold">
+          Com apenas alguns cliques, encontre refeições acessíveis perto de
+          você.
+        </p>
+        <div className="absolute bottom-0 right-5 h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] lg:right-[5vw] lg:h-[14vw] lg:w-[14vw]">
+          <Image
+            src="/img-base.png"
+            alt="imagem de um prato de comida"
+            fill
+            sizes="100%"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col">
         <div className="px-5 pt-6">
           <h2 className="mb-2 hidden text-center font-semibold lg:block">
             Categorias
