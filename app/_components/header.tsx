@@ -30,14 +30,14 @@ const Header = () => {
   const handleSignInClick = () => signIn();
 
   return (
-    <div className="z-20 flex items-center justify-between bg-white px-5 py-6 sm:sticky sm:left-0 sm:top-0 sm:w-full md:px-[10vw]">
-      <div className="relative h-[30px] w-[100px]">
+    <div className="z-20 flex items-center justify-between bg-white px-5 py-6  sm:sticky sm:left-0 sm:top-0 sm:w-full md:px-[10vw]">
+      <div className="relative h-[30px] w-[100px] ">
         <Link href="/">
           <Image
             src="/logo.png"
             alt="FSW Foods"
             fill
-            className="object-cover"
+            className="object-cover transition-transform hover:scale-110"
           />
         </Link>
       </div>
@@ -51,7 +51,7 @@ const Header = () => {
           <Button
             size="icon"
             variant="outline"
-            className="border-none bg-transparent"
+            className="border-none bg-transparent shadow-lg"
           >
             <MenuIcon />
           </Button>
