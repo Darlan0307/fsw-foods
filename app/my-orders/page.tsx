@@ -17,6 +17,9 @@ const MyOrdersPage = async () => {
   const orders = await db.order.findMany({
     where: {
       userId: session.user.id,
+      status: {
+        not: "COMPLETED",
+      },
     },
     include: {
       restaurant: true,
@@ -25,6 +28,9 @@ const MyOrdersPage = async () => {
           product: true,
         },
       },
+    },
+    orderBy: {
+      status: "asc",
     },
   });
 
