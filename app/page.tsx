@@ -59,7 +59,7 @@ const Home = async () => {
         <Search />
       </div>
 
-      <div className="relative mt-6 flex min-h-[50vh] flex-col items-center gap-5 bg-primary px-5 pt-5 text-white sm:pt-10  lg:justify-center lg:pt-0">
+      <div className="relative mt-6 flex min-h-[40vh] flex-col items-center gap-5 bg-primary px-5 pt-5 text-white sm:pt-10  lg:min-h-[50vh] lg:justify-center lg:pt-0">
         <h1 className="text-3xl font-bold lg:text-[44px]">Esta com fome?</h1>
         <p className="text-center text-lg font-semibold">
           Com apenas alguns cliques, encontre refeições acessíveis perto de
@@ -75,22 +75,20 @@ const Home = async () => {
         </div>
       </div>
 
-      <div className="flex flex-col">
-        <div className="px-5 pt-6">
-          <h2 className="mb-2 hidden text-center font-semibold lg:block">
-            Categorias
-          </h2>
-          <CategoryList />
-        </div>
+      <div className=" pt-6">
+        <h2 className="mb-2 hidden text-center font-semibold lg:block">
+          Categorias
+        </h2>
+        <CategoryList />
+      </div>
 
-        <div className="px-5 pt-6">
-          <Link href={`/categories/${pizzasCategory?.id}/products`}>
-            <PromoBanner
-              src="/promo-banner-01.png"
-              alt="Até 30% de desconto em pizzas!"
-            />
-          </Link>
-        </div>
+      <div className="px-5 pt-6">
+        <Link href={`/categories/${pizzasCategory?.id}/products`}>
+          <PromoBanner
+            src="/promo-banner-01.png"
+            alt="Até 30% de desconto em pizzas!"
+          />
+        </Link>
       </div>
 
       <div className="space-y-4 pt-6">

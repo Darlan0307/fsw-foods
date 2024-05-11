@@ -63,7 +63,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="mt-10 flex min-h-[60vh] flex-col justify-around bg-primary px-10 sm:min-h-[50vh] md:min-h-[40vh]">
+    <footer className="mt-10  flex min-h-[60vh] flex-col justify-around bg-primary px-10 pb-6 sm:min-h-[50vh] md:min-h-[40vh]">
       <div className="flex flex-col justify-center gap-3 sm:flex-row sm:items-center sm:gap-6">
         <h2 className="text-lg font-bold text-white md:text-2xl">
           Quer receber novidades pelo email? <br /> Faça o seu cadastro agora!
